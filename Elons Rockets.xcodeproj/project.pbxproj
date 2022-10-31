@@ -13,6 +13,11 @@
 		14DEF57F290FD5EC004851EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DEF57D290FD5EC004851EB /* Main.storyboard */; };
 		14DEF581290FD5ED004851EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14DEF580290FD5ED004851EB /* Assets.xcassets */; };
 		14DEF584290FD5ED004851EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DEF582290FD5ED004851EB /* LaunchScreen.storyboard */; };
+		14DEF58E290FD67F004851EB /* SpaceXApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF58D290FD67F004851EB /* SpaceXApiService.swift */; };
+		14DEF590290FD6F5004851EB /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF58F290FD6F5004851EB /* Rocket.swift */; };
+		14DEF592290FD70E004851EB /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF591290FD70E004851EB /* CrewMember.swift */; };
+		14DEF594290FD727004851EB /* RocketLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF593290FD727004851EB /* RocketLaunch.swift */; };
+		14DEF596290FD740004851EB /* SpaceXApiServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF595290FD740004851EB /* SpaceXApiServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		14DEF580290FD5ED004851EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14DEF583290FD5ED004851EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14DEF585290FD5ED004851EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14DEF58D290FD67F004851EB /* SpaceXApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApiService.swift; sourceTree = "<group>"; };
+		14DEF58F290FD6F5004851EB /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
+		14DEF591290FD70E004851EB /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
+		14DEF593290FD727004851EB /* RocketLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunch.swift; sourceTree = "<group>"; };
+		14DEF595290FD740004851EB /* SpaceXApiServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApiServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,8 @@
 		14DEF576290FD5EC004851EB /* Elons Rockets */ = {
 			isa = PBXGroup;
 			children = (
+				14DEF58C290FD65A004851EB /* Services */,
+				14DEF58B290FD64B004851EB /* Models */,
 				14DEF577290FD5EC004851EB /* AppDelegate.swift */,
 				14DEF579290FD5EC004851EB /* SceneDelegate.swift */,
 				14DEF57B290FD5EC004851EB /* ViewController.swift */,
@@ -65,6 +77,25 @@
 				14DEF585290FD5ED004851EB /* Info.plist */,
 			);
 			path = "Elons Rockets";
+			sourceTree = "<group>";
+		};
+		14DEF58B290FD64B004851EB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14DEF58F290FD6F5004851EB /* Rocket.swift */,
+				14DEF591290FD70E004851EB /* CrewMember.swift */,
+				14DEF593290FD727004851EB /* RocketLaunch.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		14DEF58C290FD65A004851EB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				14DEF58D290FD67F004851EB /* SpaceXApiService.swift */,
+				14DEF595290FD740004851EB /* SpaceXApiServiceError.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +169,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DEF58E290FD67F004851EB /* SpaceXApiService.swift in Sources */,
 				14DEF57C290FD5EC004851EB /* ViewController.swift in Sources */,
 				14DEF578290FD5EC004851EB /* AppDelegate.swift in Sources */,
+				14DEF594290FD727004851EB /* RocketLaunch.swift in Sources */,
+				14DEF590290FD6F5004851EB /* Rocket.swift in Sources */,
+				14DEF592290FD70E004851EB /* CrewMember.swift in Sources */,
 				14DEF57A290FD5EC004851EB /* SceneDelegate.swift in Sources */,
+				14DEF596290FD740004851EB /* SpaceXApiServiceError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
