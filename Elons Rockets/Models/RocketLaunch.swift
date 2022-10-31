@@ -8,24 +8,30 @@
 import Foundation
 
 public struct RocketLaunch: Codable {
-    let crew: [Crew]?
+    let crew: [Crew]
     let details: String?
     let failures: [Failure]?
-    let fireDateUnix: Date?
+    let dateUnix: TimeInterval
     let flightNumber: Int
     let id: String
     let launchpad: String
+    let name: String
     let rocketId: String
     let success: Bool?
+
+    var date: Date {
+        Date(timeIntervalSince1970: dateUnix)
+    }
 
     enum CodingKeys: String, CodingKey {
         case crew,
              details,
              failures,
-             fireDateUnix = "static_fire_date_unix",
+             dateUnix = "date_unix",
              flightNumber = "flight_number",
              id,
              launchpad,
+             name,
              rocketId = "rocket",
              success
     }
