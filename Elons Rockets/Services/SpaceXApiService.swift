@@ -29,7 +29,6 @@ struct SpaceXAPIService: ApiService {
             throw SpaceXAPIServiceError.invalidURL
         }
         let (data, _) = try await session.data(from: url)
-        print("Data: \(data)")
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .millisecondsSince1970
         return try decoder.decode([RocketLaunch].self, from: data)
