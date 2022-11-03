@@ -15,6 +15,7 @@ public struct RocketLaunch: Codable {
     let flightNumber: Int
     let id: String
     let launchpad: String
+    let links: Links
     let name: String
     let rocketId: String
     let success: Bool?
@@ -31,6 +32,7 @@ public struct RocketLaunch: Codable {
              flightNumber = "flight_number",
              id,
              launchpad,
+             links,
              name,
              rocketId = "rocket",
              success
@@ -49,5 +51,18 @@ public struct RocketLaunch: Codable {
         let altitude: Float?
         let reason: String
         let time: Float
+    }
+
+    struct Links: Codable {
+        let patch: Patch
+        let flickr: Flickr
+
+        struct Patch: Codable {
+            let small: String?
+        }
+    }
+
+    struct Flickr: Codable {
+        let original: [String]?
     }
 }

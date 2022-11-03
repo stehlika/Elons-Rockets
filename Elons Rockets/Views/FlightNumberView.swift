@@ -30,10 +30,10 @@ class FlightNumberView: UIView {
         addSubview(flightNumberLabel)
 
         NSLayoutConstraint.activate([
-            flightNumberLabel.topAnchor.constraint(equalTo: topAnchor, constant: 4.0),
+            flightNumberLabel.topAnchor.constraint(equalTo: topAnchor, constant: 2.0),
             flightNumberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.0),
             flightNumberLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.0),
-            flightNumberLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4.0)
+            flightNumberLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2.0)
         ])
     }
 }
