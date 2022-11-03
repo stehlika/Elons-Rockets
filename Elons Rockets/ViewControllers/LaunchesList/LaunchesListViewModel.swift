@@ -48,11 +48,9 @@ public extension LaunchesListViewModelType {
     }
 
     mutating func filteredLaunches(by searchText: String) {
-        progressHandler?(.loading)
         filteredLaunches = launches.filter {
             $0.name.lowercased().contains(searchText)
         }
-        progressHandler?(.success)
     }
 }
 
