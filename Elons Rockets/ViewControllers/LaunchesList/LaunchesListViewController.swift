@@ -9,11 +9,20 @@ import UIKit
 
 class LaunchesListViewController: LaunchesListViewControllerType {
 
-    public var viewModel: LaunchesListViewModelType
+    var loadingAlertView: UIAlertController
+    var searchController: UISearchController
+
+    var viewModel: LaunchesListViewModelType
 
     public init(viewModel: LaunchesListViewModelType) {
         self.viewModel = viewModel
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.loadingAlertView = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
         super.init(nibName: nil, bundle: nil)
+
+        self.searchController.searchResultsUpdater = self
+        loadingAlertView.view.addSubview(loadingIndicator)
     }
 
     required init?(coder: NSCoder) {
@@ -23,6 +32,10 @@ class LaunchesListViewController: LaunchesListViewControllerType {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewTypeDidLoad()
+
+        let sortingBarButton = UIBarButtonItem(title: "", image: orderingBarIcon, target: self, action: #selector(orderLaunchesButtonTapped))
+        sortingBarButton.tintColor = .black
+        navigationItem.rightBarButtonItem = sortingBarButton
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,5 +52,17 @@ class LaunchesListViewController: LaunchesListViewControllerType {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectRow(at: indexPath)
+    }
+
+    @objc func orderLaunchesButtonTapped() {
+        orderLaunchesButtonAction()
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
 }

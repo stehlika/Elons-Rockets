@@ -42,12 +42,21 @@ class LaunchesListCell: UITableViewCell {
 private extension LaunchesListCell {
 
     func configureViews() {
-        launchNameLabel.font = .preferredFont(forTextStyle: .title3)
+        launchNameLabel.font = .preferredFont(forTextStyle: .headline)
+        [
+            crewAmountLabel,
+            launchStatusLabel,
+            launchDateLabel
+        ].forEach {
+            $0.font = .preferredFont(forTextStyle: .subheadline)
+            $0.textColor = .darkGray
+        }
 
         detailsStackView.translatesAutoresizingMaskIntoConstraints = false
         detailsStackView.axis = .vertical
         detailsStackView.alignment = .leading
         detailsStackView.spacing = 8.0
+        accessoryType = .disclosureIndicator
     }
 
     func setupLayout() {
@@ -71,7 +80,7 @@ private extension LaunchesListCell {
             detailsStackView.trailingAnchor.constraint(equalTo: flightNumberView.leadingAnchor, constant: -8.0),
             detailsStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8.0),
 
-            flightNumberView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0),
+            flightNumberView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             flightNumberView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8.0),
         ])
     }
