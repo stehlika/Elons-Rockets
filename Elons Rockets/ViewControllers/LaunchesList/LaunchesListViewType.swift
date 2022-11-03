@@ -145,13 +145,13 @@ private extension LaunchesListViewType {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch type {
-                    case .success:
+                    case .reloadTable:
                         self.loadingAlertView.dismiss(animated: true)
                         self.tableView.reloadData()
-                    case .failure(let erroMessage):
+                    case .showFailureAlert(let erroMessage):
                         self.loadingAlertView.dismiss(animated: true)
                         self.showErrorMessage(erroMessage)
-                    case .loading:
+                    case .showLoader:
                         self.present(self.loadingAlertView, animated: true)
                 }
             }

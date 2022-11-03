@@ -8,9 +8,9 @@
 import Foundation
 
 public enum LaunchesListProgressType {
-    case loading
-    case success
-    case failure(String)
+    case showLoader
+    case reloadTable
+    case showFailureAlert(String)
     // TODO: Think about offline state
 }
 
@@ -44,13 +44,14 @@ public extension LaunchesListViewModelType {
             case .date:
                 launches = launches.sorted(by: {$0.dateUnix > $1.dateUnix })
         }
-        progressHandler?(.success)
+        progressHandler?(.reloadTable)
     }
 
     mutating func filteredLaunches(by searchText: String) {
         filteredLaunches = launches.filter {
             $0.name.lowercased().contains(searchText)
         }
+        progressHandler?(.reloadTable)
     }
 }
 
@@ -75,7 +76,7 @@ public final class LaunchesListViewModel: LaunchesListViewModelType {
     public func getAllLaunches() {
         Task {
             do {
-                progressHandler?(.loading)
+                progressHandler?(.showLoader)
                 let unOrderedlaunches = try await apiService.loadRocketLaunches()
                 switch orderLaunchesBy {
                     case .name:
@@ -85,10 +86,10 @@ public final class LaunchesListViewModel: LaunchesListViewModelType {
                     case .date:
                         launches = unOrderedlaunches.sorted(by: {$0.dateUnix > $1.dateUnix })
                 }
-                progressHandler?(.success)
+                progressHandler?(.reloadTable)
             } catch {
                 print("Something went wrong during loading rockets: \(error)")
-                progressHandler?(.failure(error.localizedDescription))
+                progressHandler?(.showFailureAlert(error.localizedDescription))
             }
         }
     }
