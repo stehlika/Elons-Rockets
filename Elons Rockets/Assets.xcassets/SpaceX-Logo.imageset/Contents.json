@@ -3,6 +3,16 @@
     {
       "filename" : "SpaceX-Logo.wine.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "SpaceX-White-Logo.wine.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -31,6 +31,7 @@
 		14DEF59D290FF80F004851EB /* LaunchesListViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF59C290FF80F004851EB /* LaunchesListViewType.swift */; };
 		14DEF5A4290FFD7B004851EB /* LaunchesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF5A3290FFD7B004851EB /* LaunchesListCell.swift */; };
 		14DEF5A929102D08004851EB /* Extensions+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF5A829102D08004851EB /* Extensions+Array.swift */; };
+		14EF6F7A291573840065289B /* DarkMode+UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF6F79291573840065289B /* DarkMode+UIScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		14DEF59C290FF80F004851EB /* LaunchesListViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesListViewType.swift; sourceTree = "<group>"; };
 		14DEF5A3290FFD7B004851EB /* LaunchesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesListCell.swift; sourceTree = "<group>"; };
 		14DEF5A829102D08004851EB /* Extensions+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Array.swift"; sourceTree = "<group>"; };
+		14EF6F79291573840065289B /* DarkMode+UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarkMode+UIScreen.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				14DEF5A829102D08004851EB /* Extensions+Array.swift */,
+				14EF6F79291573840065289B /* DarkMode+UIScreen.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				1492D7C929141767008BB1E5 /* LaunchDetailHeaderView.swift in Sources */,
 				14DEF5A4290FFD7B004851EB /* LaunchesListCell.swift in Sources */,
 				14DEF596290FD740004851EB /* SpaceXApiServiceError.swift in Sources */,
+				14EF6F7A291573840065289B /* DarkMode+UIScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
