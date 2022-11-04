@@ -90,14 +90,21 @@ class LaunchDetailHeaderView: UITableViewCell {
         detailsLabel.font = .preferredFont(forTextStyle: .footnote)
 
         detailsStackView.axis = .vertical
-        detailsStackView.spacing = 0.0
+        detailsStackView.spacing = 4.0
         detailsStackView.distribution = .equalSpacing
 
         mainStackView.distribution = .fill
         mainStackView.spacing = 8.0
         mainStackView.axis = .horizontal
+        mainStackView.alignment = .center
 
         patchImageView.contentMode = .scaleAspectFit
+
+        if isDarkModeActive {
+            patchImageView.tintColor = .white
+        } else {
+            patchImageView.tintColor = .black
+        }
     }
 
     func applyViewModel(launch: RocketLaunch, patchImage: UIImage?) {
