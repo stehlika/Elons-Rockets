@@ -48,8 +48,7 @@ private extension LaunchesListCell {
             launchStatusLabel,
             launchDateLabel
         ].forEach {
-            $0.font = .preferredFont(forTextStyle: .subheadline)
-            $0.textColor = .darkGray
+            $0.font = .preferredFont(forTextStyle: .footnote)
         }
 
         detailsStackView.translatesAutoresizingMaskIntoConstraints = false
