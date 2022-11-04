@@ -15,21 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpaceX-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-aW-62x">
-                                <rect key="frame" x="16" y="324.33333333333331" width="361" height="203.33333333333331"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="WdT-aW-62x" secondAttribute="height" multiplier="16:9" id="6zl-B0-3Cb"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="WdT-aW-62x" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Uoh-C0-UiE"/>
-                            <constraint firstItem="WdT-aW-62x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="i1S-yj-IQk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WdT-aW-62x" secondAttribute="trailing" constant="16" id="lyf-J2-rRc"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,7 +25,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SpaceX-Logo" width="1200" height="800"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
