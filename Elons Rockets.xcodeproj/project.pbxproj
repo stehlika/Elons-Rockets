@@ -10,6 +10,13 @@
 		1417F7B02910658500A9D3FD /* FlightNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417F7AF2910658500A9D3FD /* FlightNumberView.swift */; };
 		142C50412911117B00C81D91 /* BaseTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C50402911117B00C81D91 /* BaseTableViewProtocol.swift */; };
 		143AD11629105B070030D072 /* LaunchesListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AD11529105B070030D072 /* LaunchesListCellViewModel.swift */; };
+		1492D7C1291416DF008BB1E5 /* LaunchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C0291416DF008BB1E5 /* LaunchDetailViewController.swift */; };
+		1492D7C3291416F7008BB1E5 /* LaunchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C2291416F7008BB1E5 /* LaunchDetailViewModel.swift */; };
+		1492D7C52914170F008BB1E5 /* LaunchDetailViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C42914170F008BB1E5 /* LaunchDetailViewType.swift */; };
+		1492D7C72914173B008BB1E5 /* TableSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C62914173B008BB1E5 /* TableSectionViewModel.swift */; };
+		1492D7C929141767008BB1E5 /* LaunchDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C829141767008BB1E5 /* LaunchDetailHeaderView.swift */; };
+		1492D7CD29143EE0008BB1E5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7CC29143EE0008BB1E5 /* AppCoordinator.swift */; };
+		1492D7D029145405008BB1E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7CF29145405008BB1E5 /* Constants.swift */; };
 		14DEF578290FD5EC004851EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF577290FD5EC004851EB /* AppDelegate.swift */; };
 		14DEF57A290FD5EC004851EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF579290FD5EC004851EB /* SceneDelegate.swift */; };
 		14DEF57C290FD5EC004851EB /* LaunchesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF57B290FD5EC004851EB /* LaunchesListViewController.swift */; };
@@ -20,10 +27,8 @@
 		14DEF592290FD70E004851EB /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF591290FD70E004851EB /* CrewMember.swift */; };
 		14DEF594290FD727004851EB /* RocketLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF593290FD727004851EB /* RocketLaunch.swift */; };
 		14DEF596290FD740004851EB /* SpaceXApiServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF595290FD740004851EB /* SpaceXApiServiceError.swift */; };
-		14DEF598290FDB70004851EB /* AppStartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF597290FDB70004851EB /* AppStartController.swift */; };
 		14DEF59B290FF718004851EB /* LaunchesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF59A290FF718004851EB /* LaunchesListViewModel.swift */; };
 		14DEF59D290FF80F004851EB /* LaunchesListViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF59C290FF80F004851EB /* LaunchesListViewType.swift */; };
-		14DEF59F290FFAC6004851EB /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF59E290FFAC6004851EB /* DesignSystem.swift */; };
 		14DEF5A4290FFD7B004851EB /* LaunchesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF5A3290FFD7B004851EB /* LaunchesListCell.swift */; };
 		14DEF5A929102D08004851EB /* Extensions+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF5A829102D08004851EB /* Extensions+Array.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +37,13 @@
 		1417F7AF2910658500A9D3FD /* FlightNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightNumberView.swift; sourceTree = "<group>"; };
 		142C50402911117B00C81D91 /* BaseTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewProtocol.swift; sourceTree = "<group>"; };
 		143AD11529105B070030D072 /* LaunchesListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesListCellViewModel.swift; sourceTree = "<group>"; };
+		1492D7C0291416DF008BB1E5 /* LaunchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewController.swift; sourceTree = "<group>"; };
+		1492D7C2291416F7008BB1E5 /* LaunchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewModel.swift; sourceTree = "<group>"; };
+		1492D7C42914170F008BB1E5 /* LaunchDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewType.swift; sourceTree = "<group>"; };
+		1492D7C62914173B008BB1E5 /* TableSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionViewModel.swift; sourceTree = "<group>"; };
+		1492D7C829141767008BB1E5 /* LaunchDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailHeaderView.swift; sourceTree = "<group>"; };
+		1492D7CC29143EE0008BB1E5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1492D7CF29145405008BB1E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		14DEF574290FD5EC004851EB /* Elons Rockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elons Rockets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DEF577290FD5EC004851EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14DEF579290FD5EC004851EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,12 +56,9 @@
 		14DEF591290FD70E004851EB /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 		14DEF593290FD727004851EB /* RocketLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunch.swift; sourceTree = "<group>"; };
 		14DEF595290FD740004851EB /* SpaceXApiServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApiServiceError.swift; sourceTree = "<group>"; };
-		14DEF597290FDB70004851EB /* AppStartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStartController.swift; sourceTree = "<group>"; };
 		14DEF59A290FF718004851EB /* LaunchesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesListViewModel.swift; sourceTree = "<group>"; };
 		14DEF59C290FF80F004851EB /* LaunchesListViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesListViewType.swift; sourceTree = "<group>"; };
-		14DEF59E290FFAC6004851EB /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		14DEF5A3290FFD7B004851EB /* LaunchesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesListCell.swift; sourceTree = "<group>"; };
-		14DEF5A629100FD7004851EB /* Extensions+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIViewController.swift"; sourceTree = "<group>"; };
 		14DEF5A829102D08004851EB /* Extensions+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Array.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				1417F7AF2910658500A9D3FD /* FlightNumberView.swift */,
+				1492D7C829141767008BB1E5 /* LaunchDetailHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -75,6 +85,7 @@
 		1417F7B12911082500A9D3FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1492D7BF291416C5008BB1E5 /* LaunchDetail */,
 				14DEF599290FF6DD004851EB /* LaunchesList */,
 			);
 			path = ViewControllers;
@@ -97,6 +108,16 @@
 			path = LaunchesList;
 			sourceTree = "<group>";
 		};
+		1492D7BF291416C5008BB1E5 /* LaunchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1492D7C0291416DF008BB1E5 /* LaunchDetailViewController.swift */,
+				1492D7C2291416F7008BB1E5 /* LaunchDetailViewModel.swift */,
+				1492D7C42914170F008BB1E5 /* LaunchDetailViewType.swift */,
+			);
+			path = LaunchDetail;
+			sourceTree = "<group>";
+		};
 		14DEF56B290FD5EC004851EB = {
 			isa = PBXGroup;
 			children = (
@@ -116,19 +137,17 @@
 		14DEF576290FD5EC004851EB /* Elons Rockets */ = {
 			isa = PBXGroup;
 			children = (
+				14EF6F7829151B750065289B /* SupportingFiles */,
+				14DEF580290FD5ED004851EB /* Assets.xcassets */,
+				14DEF5A0290FFD3A004851EB /* Cells */,
+				14DEF5A529100FBE004851EB /* Extensions */,
+				14DEF585290FD5ED004851EB /* Info.plist */,
+				14DEF582290FD5ED004851EB /* LaunchScreen.storyboard */,
+				14DEF58B290FD64B004851EB /* Models */,
 				142C503F2911116300C81D91 /* Protocols */,
+				14DEF58C290FD65A004851EB /* Services */,
 				1417F7B12911082500A9D3FD /* ViewControllers */,
 				1417F7AE2910657400A9D3FD /* Views */,
-				14DEF5A529100FBE004851EB /* Extensions */,
-				14DEF5A0290FFD3A004851EB /* Cells */,
-				14DEF58C290FD65A004851EB /* Services */,
-				14DEF58B290FD64B004851EB /* Models */,
-				14DEF577290FD5EC004851EB /* AppDelegate.swift */,
-				14DEF579290FD5EC004851EB /* SceneDelegate.swift */,
-				14DEF597290FDB70004851EB /* AppStartController.swift */,
-				14DEF580290FD5ED004851EB /* Assets.xcassets */,
-				14DEF582290FD5ED004851EB /* LaunchScreen.storyboard */,
-				14DEF585290FD5ED004851EB /* Info.plist */,
 			);
 			path = "Elons Rockets";
 			sourceTree = "<group>";
@@ -139,6 +158,7 @@
 				14DEF58F290FD6F5004851EB /* Rocket.swift */,
 				14DEF591290FD70E004851EB /* CrewMember.swift */,
 				14DEF593290FD727004851EB /* RocketLaunch.swift */,
+				1492D7C62914173B008BB1E5 /* TableSectionViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,7 +168,6 @@
 			children = (
 				14DEF58D290FD67F004851EB /* SpaceXApiService.swift */,
 				14DEF595290FD740004851EB /* SpaceXApiServiceError.swift */,
-				14DEF59E290FFAC6004851EB /* DesignSystem.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -177,6 +196,17 @@
 				14DEF5A829102D08004851EB /* Extensions+Array.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		14EF6F7829151B750065289B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1492D7CC29143EE0008BB1E5 /* AppCoordinator.swift */,
+				14DEF577290FD5EC004851EB /* AppDelegate.swift */,
+				1492D7CF29145405008BB1E5 /* Constants.swift */,
+				14DEF579290FD5EC004851EB /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,20 +279,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14DEF59F290FFAC6004851EB /* DesignSystem.swift in Sources */,
+				1492D7C1291416DF008BB1E5 /* LaunchDetailViewController.swift in Sources */,
+				1492D7D029145405008BB1E5 /* Constants.swift in Sources */,
 				14DEF58E290FD67F004851EB /* SpaceXApiService.swift in Sources */,
 				14DEF59B290FF718004851EB /* LaunchesListViewModel.swift in Sources */,
 				142C50412911117B00C81D91 /* BaseTableViewProtocol.swift in Sources */,
+				1492D7C52914170F008BB1E5 /* LaunchDetailViewType.swift in Sources */,
 				14DEF57C290FD5EC004851EB /* LaunchesListViewController.swift in Sources */,
+				1492D7CD29143EE0008BB1E5 /* AppCoordinator.swift in Sources */,
+				1492D7C72914173B008BB1E5 /* TableSectionViewModel.swift in Sources */,
 				14DEF59D290FF80F004851EB /* LaunchesListViewType.swift in Sources */,
 				14DEF578290FD5EC004851EB /* AppDelegate.swift in Sources */,
 				14DEF5A929102D08004851EB /* Extensions+Array.swift in Sources */,
+				1492D7C3291416F7008BB1E5 /* LaunchDetailViewModel.swift in Sources */,
 				1417F7B02910658500A9D3FD /* FlightNumberView.swift in Sources */,
 				14DEF594290FD727004851EB /* RocketLaunch.swift in Sources */,
 				143AD11629105B070030D072 /* LaunchesListCellViewModel.swift in Sources */,
 				14DEF590290FD6F5004851EB /* Rocket.swift in Sources */,
 				14DEF592290FD70E004851EB /* CrewMember.swift in Sources */,
 				14DEF57A290FD5EC004851EB /* SceneDelegate.swift in Sources */,
+				1492D7C929141767008BB1E5 /* LaunchDetailHeaderView.swift in Sources */,
 				14DEF5A4290FFD7B004851EB /* LaunchesListCell.swift in Sources */,
 				14DEF596290FD740004851EB /* SpaceXApiServiceError.swift in Sources */,
 			);
