@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Rocket: Codable {
+public struct Rocket: Decodable {
     let active: Bool
     let costPerLaunch: Float
     let description: String
@@ -56,15 +56,15 @@ public struct Rocket: Codable {
              type
     }
 
-    struct Height: Codable {
+    struct Height: Decodable {
         let meters: Double // Other measurement system can be calculated
     }
 
-    struct Diameter: Codable {
+    struct Diameter: Decodable {
         let meters: Double // Other measurement system can be calculated
     }
 
-    struct Mass: Codable {
+    struct Mass: Decodable {
         let kg: Double // Other measurement system can be calculated
     }
 }
