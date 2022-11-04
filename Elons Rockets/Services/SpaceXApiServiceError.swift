@@ -8,6 +8,5 @@
 import Foundation
 
 enum SpaceXAPIServiceError: Error {
-    case invalidURL
+    case invalidURL, imageDataCorupted
 }
-

@@ -5,13 +5,13 @@
 //  Created by adam.stehlik on 25/10/2022.
 //
 
-import Foundation
-
+import UIKit
 
 public protocol ApiService {
     func loadRocketLaunches() async throws -> [RocketLaunch]
     func getRocket(by id: String) async throws -> Rocket
     func getCrewMemeber(by id: String) async throws -> CrewMember
+    func getImage(by url: String) async throws -> UIImage
 }
 
 struct SpaceXAPIService: ApiService {
@@ -55,5 +55,18 @@ struct SpaceXAPIService: ApiService {
         let (data, _) = try await session.data(from: url)
         let decoder = JSONDecoder()
         return try decoder.decode(CrewMember.self, from: data)
+    }
+
+    @MainActor
+    func getImage(by url: String) async throws -> UIImage {
+        guard let url = URL(string: url) else {
+            throw SpaceXAPIServiceError.invalidURL
+        }
+
+        let (data, _) = try await session.data(from: url)
+        guard let image = UIImage(data: data) else {
+            throw SpaceXAPIServiceError.imageDataCorupted
+        }
+        return image
     }
 }
