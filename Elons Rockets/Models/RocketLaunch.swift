@@ -56,6 +56,9 @@ public struct RocketLaunch: Codable {
     struct Links: Codable {
         let patch: Patch
         let flickr: Flickr
+        let wikipedia: String?
+        let webcast: String?
+        let article: String?
 
         struct Patch: Codable {
             let small: String?
