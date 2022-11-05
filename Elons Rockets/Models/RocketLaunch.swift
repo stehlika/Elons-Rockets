@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RocketLaunch: Codable {
+public struct RocketLaunch: Decodable {
     let crew: [Crew]
     let details: String?
     let failures: [Failure]?
@@ -38,7 +38,7 @@ public struct RocketLaunch: Codable {
              success
     }
 
-    struct Crew: Codable {
+    struct Crew: Decodable {
         let crewId: String
         let role: String
 
@@ -47,22 +47,25 @@ public struct RocketLaunch: Codable {
         }
     }
 
-    struct Failure: Codable {
+    struct Failure: Decodable {
         let altitude: Float?
         let reason: String
         let time: Float
     }
 
-    struct Links: Codable {
+    struct Links: Decodable {
         let patch: Patch
         let flickr: Flickr
+        let wikipedia: String?
+        let webcast: String?
+        let article: String?
 
-        struct Patch: Codable {
+        struct Patch: Decodable {
             let small: String?
         }
     }
 
-    struct Flickr: Codable {
+    struct Flickr: Decodable {
         let original: [String]?
     }
 }

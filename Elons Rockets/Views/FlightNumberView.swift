@@ -21,11 +21,17 @@ class FlightNumberView: UIView {
     }
 
     func configureViews() {
-        backgroundColor = .black
+        if isDarkModeActive {
+            backgroundColor = .white
+            flightNumberLabel.textColor = .black
+        } else {
+            backgroundColor = .black
+            flightNumberLabel.textColor = .white
+        }
+
         layer.masksToBounds = true
         layer.cornerRadius = 10
 
-        flightNumberLabel.textColor = .white
         flightNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(flightNumberLabel)
 

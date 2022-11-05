@@ -73,13 +73,19 @@ public extension LaunchesListViewType where Self: UITableViewController {
         guard let launch = launch else {
             return
         }
-        let detailViewModel = LaunchDetailViewModel(apiService: viewModel.apiService, rocketLaunch: launch)
+
+        let detailViewModel = LaunchDetailViewModel(apiService: viewModel.apiService)
+        detailViewModel.rocketLaunch = launch
         let detailViewController = LaunchDetailViewController(viewModel: detailViewModel)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 
     var orderingBarIcon: UIImage? {
-        UIImage(systemName: "arrow.up.arrow.down.circle")
+        if isDarkModeActive {
+            return UIImage(systemName: "arrow.up.arrow.down.circle")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        } else {
+            return UIImage(systemName: "arrow.up.arrow.down.circle")
+        }
     }
 
     func orderLaunchesButtonAction() {
@@ -148,9 +154,9 @@ private extension LaunchesListViewType {
                     case .reloadTable:
                         self.loadingAlertView.dismiss(animated: true)
                         self.tableView.reloadData()
-                    case .showFailureAlert(let erroMessage):
-                        self.loadingAlertView.dismiss(animated: true)
-                        self.showErrorMessage(erroMessage)
+                    case .showFailureAlert(let errorMessage):
+                        self.loadingAlertView.dismiss(animated: false)
+                        self.showErrorMessage(errorMessage)
                     case .showLoader:
                         self.present(self.loadingAlertView, animated: true)
                 }
@@ -160,6 +166,7 @@ private extension LaunchesListViewType {
 
     func showErrorMessage(_ message: String) {
         let alert = UIAlertController(title: "Something went wrong", message: message, preferredStyle: .alert)
+        // TODO: Add possibility to retry operation
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
         self.present(alert, animated: true, completion: nil)
     }

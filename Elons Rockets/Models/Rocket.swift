@@ -7,32 +7,64 @@
 
 import Foundation
 
-public struct Rocket: Codable {
+public struct Rocket: Decodable {
     let active: Bool
     let costPerLaunch: Float
     let description: String
     let name: String
-    let reusable: Bool?
     let type: String
+    let height: Height
+    let diameter: Diameter
+    let mass: Mass
+
+    var measurementSystem: Locale.MeasurementSystem {
+        Locale.current.measurementSystem
+    }
+
+    var massCalculated: String {
+        if measurementSystem == .metric {
+            return "\(mass.kg) kg"
+        } else {
+            return "\(Float(mass.kg) * kgsToLbsRatio) lb"
+        }
+    }
+
+    var diameterCalculated: String {
+        if measurementSystem == .metric {
+            return "\(diameter.meters) m"
+        } else {
+            return "\(Float(diameter.meters) * metersToFeetRatio) ft"
+        }
+    }
+
+    var heightCalculated: String {
+        if measurementSystem == .metric {
+            return "\(height.meters) m"
+        } else {
+            return "\(Float(height.meters) * metersToFeetRatio) ft"
+        }
+    }
 
     enum CodingKeys: String, CodingKey {
         case active,
              costPerLaunch = "cost_per_launch",
              description,
+             diameter,
+             height,
+             mass,
              name,
-             reusable,
              type
     }
 
-    struct Height: Codable {
+    struct Height: Decodable {
         let meters: Double // Other measurement system can be calculated
     }
 
-    struct Diameter: Codable {
+    struct Diameter: Decodable {
         let meters: Double // Other measurement system can be calculated
     }
 
-    struct Mass: Codable {
+    struct Mass: Decodable {
         let kg: Double // Other measurement system can be calculated
     }
 }
