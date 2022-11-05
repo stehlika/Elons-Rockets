@@ -10,6 +10,7 @@
 		1417F7B02910658500A9D3FD /* FlightNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417F7AF2910658500A9D3FD /* FlightNumberView.swift */; };
 		142C50412911117B00C81D91 /* BaseTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C50402911117B00C81D91 /* BaseTableViewProtocol.swift */; };
 		143AD11629105B070030D072 /* LaunchesListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AD11529105B070030D072 /* LaunchesListCellViewModel.swift */; };
+		1488F8402916A34300BCB437 /* Launchpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488F83F2916A34300BCB437 /* Launchpad.swift */; };
 		1492D7C1291416DF008BB1E5 /* LaunchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C0291416DF008BB1E5 /* LaunchDetailViewController.swift */; };
 		1492D7C3291416F7008BB1E5 /* LaunchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C2291416F7008BB1E5 /* LaunchDetailViewModel.swift */; };
 		1492D7C52914170F008BB1E5 /* LaunchDetailViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C42914170F008BB1E5 /* LaunchDetailViewType.swift */; };
@@ -38,6 +39,7 @@
 		1417F7AF2910658500A9D3FD /* FlightNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightNumberView.swift; sourceTree = "<group>"; };
 		142C50402911117B00C81D91 /* BaseTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewProtocol.swift; sourceTree = "<group>"; };
 		143AD11529105B070030D072 /* LaunchesListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesListCellViewModel.swift; sourceTree = "<group>"; };
+		1488F83F2916A34300BCB437 /* Launchpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launchpad.swift; sourceTree = "<group>"; };
 		1492D7C0291416DF008BB1E5 /* LaunchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewController.swift; sourceTree = "<group>"; };
 		1492D7C2291416F7008BB1E5 /* LaunchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewModel.swift; sourceTree = "<group>"; };
 		1492D7C42914170F008BB1E5 /* LaunchDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewType.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				14DEF591290FD70E004851EB /* CrewMember.swift */,
 				14DEF593290FD727004851EB /* RocketLaunch.swift */,
 				1492D7C62914173B008BB1E5 /* TableSectionViewModel.swift */,
+				1488F83F2916A34300BCB437 /* Launchpad.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				143AD11629105B070030D072 /* LaunchesListCellViewModel.swift in Sources */,
 				14DEF590290FD6F5004851EB /* Rocket.swift in Sources */,
 				14DEF592290FD70E004851EB /* CrewMember.swift in Sources */,
+				1488F8402916A34300BCB437 /* Launchpad.swift in Sources */,
 				14DEF57A290FD5EC004851EB /* SceneDelegate.swift in Sources */,
 				1492D7C929141767008BB1E5 /* LaunchDetailHeaderView.swift in Sources */,
 				14DEF5A4290FFD7B004851EB /* LaunchesListCell.swift in Sources */,
