@@ -12,6 +12,7 @@ public protocol ApiService {
     func getRocket(by id: String) async throws -> Rocket
     func getCrewMemeber(by id: String) async throws -> CrewMember
     func getImage(by url: String) async throws -> UIImage
+    func getLaunchpad(by id: String) async throws -> Launchpad
 }
 
 struct SpaceXAPIService: ApiService {
@@ -68,5 +69,16 @@ struct SpaceXAPIService: ApiService {
             throw SpaceXAPIServiceError.imageDataCorupted
         }
         return image
+    }
+
+    @MainActor
+    func getLaunchpad(by id: String) async throws -> Launchpad {
+        let postfix = "launchpads/"
+        guard let url = URL(string: baseUrl + apiVersion4 + postfix + id) else {
+            throw SpaceXAPIServiceError.invalidURL
+        }
+        let (data, _) = try await session.data(from: url)
+        let decoder = JSONDecoder()
+        return try decoder.decode(Launchpad.self, from: data)
     }
 }

@@ -20,10 +20,12 @@ public protocol LaunchDetailViewModelType {
     var progressHandler: LaunchDetailProgressClosure? { get set }
 
     var apiService: ApiService { get }
-    var rocketLaunch: RocketLaunch? { get set }
 
     var crewMembers: [CrewMember] { get set }
+    var launchpad: Launchpad? { get set }
     var rocket: Rocket? { get set }
+    var rocketLaunch: RocketLaunch? { get set }
+
     var tableData: [TableSectionViewModel] { get }
 
     var mainImage: UIImage? { get set }
@@ -33,16 +35,31 @@ public protocol LaunchDetailViewModelType {
 
 public extension LaunchDetailViewModelType {
 
-    var launchDetailMainInfo: UITableViewCell {
-        let cell = LaunchDetailHeaderView()
-        guard let rocketLaunch = rocketLaunch else { return UITableViewCell() }
-        cell.applyViewModel(launch: rocketLaunch, patchImage: patchImage)
-        return cell
+    var tableData: [TableSectionViewModel] {
+        var rows: [TableSectionViewModel] = []
+
+        rows.append(TableSectionViewModel(rows: [launchDetailMainInfo], sectionHeaderTitle: "Main information"))
+        if !linksSectionRows.isEmpty {
+            rows.append(TableSectionViewModel(rows: linksSectionRows , sectionHeaderTitle: "Links"))
+        }
+        rows.append(TableSectionViewModel(rows: rocketSectionRows, sectionHeaderTitle: "Rocket"))
+        rows.append(TableSectionViewModel(rows: crewMembersSectionRows, sectionHeaderTitle: "Flight crew"))
+        if !launchpadSectionRows.isEmpty {
+            rows.append(TableSectionViewModel(rows: launchpadSectionRows, sectionHeaderTitle: "Launchpad"))
+        }
+        return rows
     }
 
-    var rocketSectionRows: [ValueRow] {
+    var launchDetailMainInfo: UITableViewCell {
+        guard let rocketLaunch = rocketLaunch else { return UITableViewCell() }
+        let headerCell = LaunchDetailHeaderView()
+        headerCell.applyViewModel(launch: rocketLaunch, patchImage: patchImage)
+        return headerCell
+    }
+
+    var rocketSectionRows: [UITableViewCell] {
         guard let rocket = rocket else {
-            return [ValueRow(key: "There are no details", value: "")]
+            return [ValueRow(key: "There are no details", value: "").tableViewCell]
         }
         var rows: [ValueRow] = []
         rows.append(ValueRow(key: "Name", value: rocket.name))
@@ -51,16 +68,15 @@ public extension LaunchDetailViewModelType {
         rows.append(ValueRow(key: "Diameter", value: "\(rocket.diameterCalculated)"))
         rows.append(ValueRow(key: "Height", value: "\(rocket.heightCalculated)"))
         rows.append(ValueRow(key: "Mass", value: "\(rocket.massCalculated)"))
-
-        return rows
+        return rows.map { $0.tableViewCell }
     }
 
-    var linksSectionRows: [ValueRow] {
+    var linksSectionRows: [UITableViewCell] {
         var rows: [ValueRow] = []
         for links in linksData {
             rows.append(ValueRow(key: links.0, value: ""))
         }
-        return rows
+        return rows.map { $0.tableViewCell }
     }
 
     // If you want to add another social link add it here
@@ -82,29 +98,30 @@ public extension LaunchDetailViewModelType {
         return links
     }
 
-    var tableData: [TableSectionViewModel] {
-        var rows: [TableSectionViewModel] = []
-
-        rows.append(TableSectionViewModel(rows: [launchDetailMainInfo], sectionHeaderTitle: "Main information"))
-        if !linksSectionRows.isEmpty {
-            rows.append(TableSectionViewModel(rows: linksSectionRows.map { $0.tableViewCell } , sectionHeaderTitle: "Links"))
-        }
-        rows.append(TableSectionViewModel(rows: rocketSectionRows.map { $0.tableViewCell }, sectionHeaderTitle: "Rocket"))
-        rows.append(TableSectionViewModel(rows: crewMembersSectionRows.map({ $0.tableViewCell }), sectionHeaderTitle: "Flight crew"))
-        return rows
-    }
-
-    var crewMembersSectionRows: [ValueRow] {
+    var crewMembersSectionRows: [UITableViewCell] {
         guard !crewMembers.isEmpty else {
-            return [ValueRow(key: "This launch is crewless", value: "")]
+            return [ValueRow(key: "This launch is crewless", value: "").tableViewCell]
         }
 
         var crewRows: [ValueRow] = []
         for crewMember in crewMembers {
             crewRows.append(ValueRow(key: crewMember.name, value: crewMember.agency))
         }
+        return crewRows.map { $0.tableViewCell }
+    }
 
-        return crewRows
+    var launchpadSectionRows: [UITableViewCell] {
+        guard let launchpad = launchpad else { return [] }
+
+        var rows: [ValueRow] = []
+        rows.append(ValueRow.init(key: "Name", value: launchpad.name))
+        rows.append(ValueRow.init(key: "Full name", value: launchpad.fullName))
+        rows.append(ValueRow.init(key: "Locality", value: launchpad.locality))
+        rows.append(ValueRow.init(key: "Region", value: launchpad.region))
+        rows.append(ValueRow.init(key: "Launch attempts", value: "\(launchpad.launchAttempts)"))
+        rows.append(ValueRow.init(key: "Launch succcesses", value: "\(launchpad.launchSuccesses)"))
+        rows.append(ValueRow.init(key: "Details", value: launchpad.details))
+        return rows.map { $0.tableViewCell }
     }
 }
 
@@ -112,14 +129,15 @@ class LaunchDetailViewModel: LaunchDetailViewModelType {
     var progressHandler: LaunchDetailProgressClosure?
 
     var crewMembers: [CrewMember] = []
-
+    var launchpad: Launchpad?
     var rocket: Rocket?
+    var rocketLaunch: RocketLaunch?
 
     var patchImage: UIImage = UIImage(named: "rocket")!
     var mainImage: UIImage?
 
     var apiService: ApiService
-    var rocketLaunch: RocketLaunch?
+
 
     init(apiService: ApiService) {
         self.apiService = apiService
@@ -128,9 +146,7 @@ class LaunchDetailViewModel: LaunchDetailViewModelType {
     func getLaunchDetails() {
         Task {
             do {
-                guard let rocketLaunch = rocketLaunch else {
-                    return
-                }
+                guard let rocketLaunch = rocketLaunch else { return }
                 progressHandler?(.loading)
                 if !rocketLaunch.crew.isEmpty {
                     for crew in rocketLaunch.crew {
@@ -148,6 +164,7 @@ class LaunchDetailViewModel: LaunchDetailViewModelType {
                 }
 
                 rocket = try await apiService.getRocket(by: rocketLaunch.rocketId)
+                launchpad = try await apiService.getLaunchpad(by: rocketLaunch.launchpad)
                 progressHandler?(.success)
             } catch {
                 print("Something went wrong: \(error)")
