@@ -30,15 +30,12 @@ public extension LaunchesListViewType where Self: UITableViewController {
         self.navigationItem.backButtonTitle = ""
     }
 
-    func numberOfSections() -> Int {
-        1
-    }
-
     func numberOfRows(in section: Int) -> Int {
         if isFiltering {
             return viewModel.filteredLaunches.count
+        } else {
+            return viewModel.launches.count
         }
-        return viewModel.launches.count
     }
 
     func cellForRow(at indexPath: IndexPath) -> UITableViewCell {

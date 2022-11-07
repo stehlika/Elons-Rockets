@@ -9,7 +9,6 @@ import UIKit
 
 class LaunchDetailHeaderView: UITableViewCell {
 
-    let wraperView = UIView()
     let patchImageView = UIImageView()
     let launchNameLabel = UILabel()
     let launchDateLabel = UILabel()
@@ -37,7 +36,6 @@ class LaunchDetailHeaderView: UITableViewCell {
             separatorLine,
             detailsStackView,
             mainStackView,
-            wraperView
         ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -47,34 +45,27 @@ class LaunchDetailHeaderView: UITableViewCell {
         mainStackView.addArrangedSubview(patchImageView)
         mainStackView.addArrangedSubview(detailsStackView)
 
-        wraperView.addSubview(mainStackView)
-        wraperView.addSubview(separatorLine)
-        wraperView.addSubview(detailsLabel)
-
-        addSubview(wraperView)
+        addSubview(mainStackView)
+        addSubview(separatorLine)
+        addSubview(detailsLabel)
 
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: wraperView.topAnchor, constant: 8.0),
-            mainStackView.leadingAnchor.constraint(equalTo: wraperView.leadingAnchor, constant: 8.0),
-            mainStackView.trailingAnchor.constraint(equalTo: wraperView.trailingAnchor, constant: -8.0),
+            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 8.0),
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.0),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.0),
             mainStackView.bottomAnchor.constraint(equalTo: separatorLine.topAnchor, constant: -8.0),
 
-            separatorLine.leadingAnchor.constraint(equalTo: wraperView.leadingAnchor, constant: 8.0),
-            separatorLine.trailingAnchor.constraint(equalTo: wraperView.trailingAnchor, constant: 8.0),
+            separatorLine.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.0),
+            separatorLine.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.0),
             separatorLine.heightAnchor.constraint(equalToConstant: 1.0),
 
             patchImageView.heightAnchor.constraint(equalToConstant: 64.0),
             patchImageView.widthAnchor.constraint(equalToConstant: 64.0),
 
             detailsLabel.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 8.0),
-            detailsLabel.leadingAnchor.constraint(equalTo: wraperView.leadingAnchor, constant: 8.0),
-            detailsLabel.trailingAnchor.constraint(equalTo: wraperView.trailingAnchor, constant: -8.0),
-            detailsLabel.bottomAnchor.constraint(equalTo: wraperView.bottomAnchor, constant: -8.0),
-
-            wraperView.topAnchor.constraint(equalTo: topAnchor),
-            wraperView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            wraperView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            wraperView.bottomAnchor.constraint(equalTo: bottomAnchor) // TODO: delete wraper
+            detailsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.0),
+            detailsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.0),
+            detailsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8.0),
         ])
     }
 

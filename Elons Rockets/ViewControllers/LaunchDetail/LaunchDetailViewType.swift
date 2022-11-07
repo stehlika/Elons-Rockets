@@ -7,7 +7,7 @@
 
 import UIKit
 
-public typealias LaunchDetailViewControllerType = LaunchDetailViewType & UITableViewController // TODO: Think if this is necessary
+public typealias LaunchDetailViewControllerType = LaunchDetailViewType & UITableViewController
 
 public protocol LaunchDetailViewType: UITableViewController, BaseTableViewProtocol {
 
@@ -38,7 +38,7 @@ public extension LaunchDetailViewType where Self: UITableViewController {
             return UITableViewCell()
         }
 
-        if indexPath.section == 1 {
+        if indexPath.section == 1  && !viewModel.linksData.isEmpty {
             cell.selectionStyle = .gray
         } else {
             cell.selectionStyle = .none

@@ -14,3 +14,10 @@ public protocol BaseTableViewProtocol {
     func didSelectRow(at indexPath: IndexPath)
     func viewTypeDidLoad()
 }
+
+// Default values
+public extension BaseTableViewProtocol {
+    func numberOfSections() -> Int {
+        1
+    }
+}

@@ -12,8 +12,6 @@ public struct Launchpad: Decodable {
     let name: String
     let fullName: String
     let details: String
-    let latitude: Double // TODO: Think what to do with this
-    let longitude: Double // TODO: Think what to do with this
     let launchAttempts: Int
     let launchSuccesses: Int
     let locality: String
@@ -23,8 +21,6 @@ public struct Launchpad: Decodable {
         case name,
              fullName = "full_name",
              details,
-             latitude,
-             longitude,
              launchAttempts = "launch_attempts",
              launchSuccesses = "launch_successes",
              locality,
