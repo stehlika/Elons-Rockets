@@ -7,6 +7,7 @@
 
 import Foundation
 
+// To ensure the outOfBounds exception will not happen 
 public extension Array {
     subscript(safe index: Int) -> Element? {
         indices ~= index ? self[index] : nil

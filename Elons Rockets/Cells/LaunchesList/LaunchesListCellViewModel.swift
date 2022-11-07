@@ -19,18 +19,17 @@ struct LaunchesListCellViewModel {
     }
 
     var crewText: String {
-        if rocketLaunch.crew.count == 0 {
-            return "Crewless launch"
-        } else {
-            return "Crew: \(rocketLaunch.crew.count) people"
-        }
+        let format = NSLocalizedString("LaunchesListCell.CrewPeopleText", comment: "")
+        return String(format: format, rocketLaunch.crew.count)
     }
 
     var statusText: String {
         if Date.now.timeIntervalSince1970 < rocketLaunch.dateUnix {
             return "Upcoming flight"
+        } else if rocketLaunch.success == true {
+            return "Succesful flight"
         } else {
-            return rocketLaunch.success ?? false ? "Succesful flight" : "Failed flight"
+            return "Failed flight"
         }
     }
 

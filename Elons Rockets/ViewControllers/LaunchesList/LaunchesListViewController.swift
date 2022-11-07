@@ -47,10 +47,6 @@ class LaunchesListViewController: LaunchesListViewControllerType {
         cellForRow(at: indexPath)
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        numberOfSections()
-    }
-
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }

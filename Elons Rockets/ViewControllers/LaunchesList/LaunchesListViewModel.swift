@@ -28,6 +28,7 @@ public protocol LaunchesListViewModelType {
     var filteredLaunches: [RocketLaunch] { get set }
     var progressHandler: LaunchesListProgressClosure? { get set }
     var orderLaunchesBy: LaunchesOrderType { get set }
+    var orderLaunchesKey: String { get }
 
     func getAllLaunches()
 }
@@ -35,7 +36,7 @@ public protocol LaunchesListViewModelType {
 public extension LaunchesListViewModelType {
     mutating func reorderLaunches(by newOrder: LaunchesOrderType) {
         orderLaunchesBy = newOrder
-        UserDefaults.standard.set(orderLaunchesBy.rawValue, forKey: "orderLaunchesKey")
+        UserDefaults.standard.set(orderLaunchesBy.rawValue, forKey: orderLaunchesKey)
         switch orderLaunchesBy {
             case .name:
                 launches = launches.sorted(by: {$0.name.lowercased() < $1.name.lowercased() })
@@ -63,13 +64,14 @@ public final class LaunchesListViewModel: LaunchesListViewModelType {
     public var launches: [RocketLaunch] = []
     public var filteredLaunches: [RocketLaunch] = []
     public var orderLaunchesBy: LaunchesOrderType
+    public let orderLaunchesKey = "orderLaunchesKey"
 
     public var progressHandler: LaunchesListProgressClosure?
 
     init(apiService: ApiService) {
         self.apiService = apiService
 
-        let orderLaunchesString = UserDefaults.standard.string(forKey: "orderLaunchesKey") ?? "date"
+        let orderLaunchesString = UserDefaults.standard.string(forKey: orderLaunchesKey) ?? "date"
         orderLaunchesBy = LaunchesOrderType(rawValue: orderLaunchesString) ?? .date
     }
 
