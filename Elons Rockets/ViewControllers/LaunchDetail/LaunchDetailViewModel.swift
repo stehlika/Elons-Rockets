@@ -8,8 +8,8 @@
 import UIKit
 
 public enum LaunchDetailProgressType {
-    case loading
-    case success
+    case showLoader
+    case reloadData
     case failure(String)
 }
 
@@ -145,7 +145,7 @@ class LaunchDetailViewModel: LaunchDetailViewModelType {
     func getLaunchDetails() {
         Task {
             do {
-                progressHandler?(.loading)
+                progressHandler?(.showLoader)
                 if !rocketLaunch.crew.isEmpty {
                     for crew in rocketLaunch.crew {
                         let crewMember = try await apiService.getCrewMemeber(by: crew.crewId)
@@ -163,7 +163,7 @@ class LaunchDetailViewModel: LaunchDetailViewModelType {
 
                 rocket = try await apiService.getRocket(by: rocketLaunch.rocketId)
                 launchpad = try await apiService.getLaunchpad(by: rocketLaunch.launchpad)
-                progressHandler?(.success)
+                progressHandler?(.reloadData)
             } catch {
                 print("Something went wrong: \(error)")
                 progressHandler?(.failure(error.localizedDescription))

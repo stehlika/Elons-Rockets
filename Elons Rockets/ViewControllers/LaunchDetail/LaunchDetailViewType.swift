@@ -106,11 +106,11 @@ private extension LaunchDetailViewType {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch type {
-                    case .success:
+                    case .reloadData:
                         self.updateTableHeader()
                         self.tableView.reloadData()
                         self.dismiss(animated: false)
-                    case .loading:
+                    case .showLoader:
                         self.present(self.loadingAlertView, animated: false)
                     case .failure(let errorMessage):
                         self.loadingAlertView.dismiss(animated: true) {
