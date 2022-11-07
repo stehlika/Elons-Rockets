@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Network
 
 public protocol ApiService {
     func loadRocketLaunches() async throws -> [RocketLaunch]
@@ -17,22 +18,18 @@ public protocol ApiService {
 
 struct SpaceXAPIService: ApiService {
 
-    static let shared = SpaceXAPIService()
+    let decoder = JSONDecoder()
+    let monitor = NWPathMonitor()
+    let session = URLSession.shared
 
-    var session = URLSession.shared
-
-    var baseUrl = "https://api.spacexdata.com/"
-    var apiVersion5 = "v5/"
-    var apiVersion4 = "v4/"
+    let baseUrl = "https://api.spacexdata.com/"
+    let apiVersion5 = "v5/"
+    let apiVersion4 = "v4/"
 
     @MainActor
     func loadRocketLaunches() async throws -> [RocketLaunch] {
         let postfix = "launches"
-        guard let url = URL(string: baseUrl + apiVersion5 + postfix) else {
-            throw SpaceXAPIServiceError.invalidURL
-        }
-        let (data, _) = try await session.data(from: url)
-        let decoder = JSONDecoder()
+        let data = try await getData(baseUrl + apiVersion5 + postfix)
         decoder.dateDecodingStrategy = .millisecondsSince1970
         return try decoder.decode([RocketLaunch].self, from: data)
     }
@@ -40,33 +37,20 @@ struct SpaceXAPIService: ApiService {
     @MainActor
     func getRocket(by id: String) async throws -> Rocket {
         let postfix = "rockets/"
-        guard let url = URL(string: baseUrl + apiVersion4 + postfix + id) else {
-            throw SpaceXAPIServiceError.invalidURL
-        }
-        let (data, _) = try await session.data(from: url)
-        let decoder = JSONDecoder()
+        let data = try await getData(baseUrl + apiVersion4 + postfix + id)
         return try decoder.decode(Rocket.self, from: data)
     }
 
     @MainActor
     func getCrewMemeber(by id: String) async throws -> CrewMember {
         let postfix = "crew/"
-        guard let url = URL(string: baseUrl + apiVersion4 + postfix + id) else {
-            throw SpaceXAPIServiceError.invalidURL
-        }
-
-        let (data, _) = try await session.data(from: url)
-        let decoder = JSONDecoder()
+        let data = try await getData(baseUrl + apiVersion4 + postfix + id)
         return try decoder.decode(CrewMember.self, from: data)
     }
 
     @MainActor
     func getImage(by url: String) async throws -> UIImage {
-        guard let url = URL(string: url) else {
-            throw SpaceXAPIServiceError.invalidURL
-        }
-
-        let (data, _) = try await session.data(from: url)
+        let data = try await getData(url)
         guard let image = UIImage(data: data) else {
             throw SpaceXAPIServiceError.imageDataCorupted
         }
@@ -76,11 +60,28 @@ struct SpaceXAPIService: ApiService {
     @MainActor
     func getLaunchpad(by id: String) async throws -> Launchpad {
         let postfix = "launchpads/"
-        guard let url = URL(string: baseUrl + apiVersion4 + postfix + id) else {
+        let data = try await getData(baseUrl + apiVersion4 + postfix + id)
+        return try decoder.decode(Launchpad.self, from: data)
+    }
+
+    @MainActor
+    func getData(_ stringUrl: String) async throws -> Data {
+        guard let url = URL(string: stringUrl) else {
             throw SpaceXAPIServiceError.invalidURL
         }
+        try checkInternetConnection()
         let (data, _) = try await session.data(from: url)
-        let decoder = JSONDecoder()
-        return try decoder.decode(Launchpad.self, from: data)
+        return data
+    }
+
+    func checkInternetConnection() throws {
+        // iPhone simulator has issues with NWPathMonitor
+        #if targetEnvironment(simulator)
+            return
+        #else
+            if monitor.currentPath.status != .satisfied {
+                throw SpaceXAPIServiceError.noInternet
+            }
+        #endif
     }
 }

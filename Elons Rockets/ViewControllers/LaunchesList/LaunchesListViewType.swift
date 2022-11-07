@@ -27,7 +27,7 @@ public extension LaunchesListViewType where Self: UITableViewController {
         setupTableView()
         setupViewModel()
 
-        self.navigationItem.backButtonTitle = ""
+        navigationItem.backButtonTitle = ""
     }
 
     func numberOfRows(in section: Int) -> Int {
@@ -93,16 +93,16 @@ public extension LaunchesListViewType where Self: UITableViewController {
             self.viewModel.reorderLaunches(by: .name)
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        actionSheet.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        actionSheet.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(actionSheet, animated: true)
     }
 
     var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
+      searchController.searchBar.text?.isEmpty ?? true
     }
 
     var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
+      searchController.isActive && !isSearchBarEmpty
     }
 
     func filterContentForSearchText(_ searchText: String, launchName: String? = nil) {
@@ -140,7 +140,7 @@ private extension LaunchesListViewType {
     func setupViewModel() {
         viewModel.getAllLaunches()
 
-        self.viewModel.progressHandler = { [weak self] type in
+        viewModel.progressHandler = { [weak self] type in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch type {
@@ -165,6 +165,6 @@ private extension LaunchesListViewType {
             self.viewModel.getAllLaunches()
         })
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }

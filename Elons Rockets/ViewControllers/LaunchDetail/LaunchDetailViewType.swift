@@ -139,6 +139,6 @@ private extension LaunchDetailViewType {
             self.viewModel.getLaunchDetails()
         })
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }
