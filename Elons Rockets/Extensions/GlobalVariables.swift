@@ -8,9 +8,5 @@
 import UIKit
 
 var isDarkModeActive: Bool {
-    if UIScreen.main.traitCollection.userInterfaceStyle == .dark {
-        return true
-    } else {
-        return false
-    }
+    UIScreen.main.traitCollection.userInterfaceStyle == .dark ? true : false
 }

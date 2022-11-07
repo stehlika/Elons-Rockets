@@ -22,7 +22,7 @@ class LaunchesListViewController: LaunchesListViewControllerType {
 
         super.init(nibName: nil, bundle: nil)
 
-        self.searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = self
         loadingAlertView.view.addSubview(loadingIndicator)
     }
 

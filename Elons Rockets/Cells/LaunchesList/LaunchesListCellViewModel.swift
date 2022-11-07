@@ -34,7 +34,7 @@ struct LaunchesListCellViewModel {
     }
 
     var dateText: String {
-        return rocketLaunch.date.formatted()
+        rocketLaunch.date.formatted()
     }
 
     var flightNumber: String {

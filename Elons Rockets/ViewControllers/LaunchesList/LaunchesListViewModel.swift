@@ -11,7 +11,6 @@ public enum LaunchesListProgressType {
     case showLoader
     case reloadTable
     case showFailureAlert(String)
-    // TODO: Think about offline state
 }
 
 public enum LaunchesOrderType: String {
@@ -31,20 +30,14 @@ public protocol LaunchesListViewModelType {
     var orderLaunchesKey: String { get }
 
     func getAllLaunches()
+    func orderLaunches(_ launches: [RocketLaunch]) -> [RocketLaunch]
 }
 
 public extension LaunchesListViewModelType {
     mutating func reorderLaunches(by newOrder: LaunchesOrderType) {
         orderLaunchesBy = newOrder
         UserDefaults.standard.set(orderLaunchesBy.rawValue, forKey: orderLaunchesKey)
-        switch orderLaunchesBy {
-            case .name:
-                launches = launches.sorted(by: {$0.name.lowercased() < $1.name.lowercased() })
-            case .launchNumber:
-                launches = launches.sorted(by: {$0.flightNumber > $1.flightNumber })
-            case .date:
-                launches = launches.sorted(by: {$0.dateUnix > $1.dateUnix })
-        }
+        launches = orderLaunches(launches)
         progressHandler?(.reloadTable)
     }
 
@@ -53,6 +46,17 @@ public extension LaunchesListViewModelType {
             $0.name.lowercased().contains(searchText)
         }
         progressHandler?(.reloadTable)
+    }
+
+    func orderLaunches(_ launches: [RocketLaunch]) -> [RocketLaunch] {
+        switch orderLaunchesBy {
+            case .name:
+                return launches.sorted(by: {$0.name.lowercased() < $1.name.lowercased() })
+            case .launchNumber:
+                return launches.sorted(by: {$0.flightNumber > $1.flightNumber })
+            case .date:
+                return launches.sorted(by: {$0.dateUnix > $1.dateUnix })
+        }
     }
 }
 
@@ -80,14 +84,7 @@ public final class LaunchesListViewModel: LaunchesListViewModelType {
             do {
                 progressHandler?(.showLoader)
                 let unOrderedlaunches = try await apiService.loadRocketLaunches()
-                switch orderLaunchesBy {
-                    case .name:
-                        launches = unOrderedlaunches.sorted(by: {$0.name.lowercased() < $1.name.lowercased() })
-                    case .launchNumber:
-                        launches = unOrderedlaunches.sorted(by: {$0.flightNumber > $1.flightNumber })
-                    case .date:
-                        launches = unOrderedlaunches.sorted(by: {$0.dateUnix > $1.dateUnix })
-                }
+                launches = orderLaunches(unOrderedlaunches)
                 progressHandler?(.reloadTable)
             } catch {
                 print("Something went wrong during loading rockets: \(error)")
