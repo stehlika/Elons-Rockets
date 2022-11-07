@@ -151,8 +151,10 @@ private extension LaunchesListViewType {
                         self.loadingAlertView.dismiss(animated: true)
                         self.tableView.reloadData()
                     case .showFailureAlert(let errorMessage):
-                        self.loadingAlertView.dismiss(animated: false)
-                        self.showErrorMessage(errorMessage)
+                        self.loadingAlertView.dismiss(animated: false) {
+                            // It needs to wait for one view closing down to open a new one.
+                            self.showErrorMessage(errorMessage)
+                        }
                     case .showLoader:
                         self.present(self.loadingAlertView, animated: true)
                 }
@@ -162,8 +164,10 @@ private extension LaunchesListViewType {
 
     func showErrorMessage(_ message: String) {
         let alert = UIAlertController(title: "Something went wrong", message: message, preferredStyle: .alert)
-        // TODO: Add possibility to retry operation
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        alert.addAction(UIAlertAction(title: "Retry", style: .default) { _ in
+            self.viewModel.getAllLaunches()
+        })
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
         self.present(alert, animated: true, completion: nil)
     }
 }

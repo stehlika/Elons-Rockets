@@ -113,8 +113,10 @@ private extension LaunchDetailViewType {
                     case .loading:
                         self.present(self.loadingAlertView, animated: false)
                     case .failure(let errorMessage):
-                        self.loadingAlertView.dismiss(animated: true)
-                        self.showErrorMessage(errorMessage)
+                        self.loadingAlertView.dismiss(animated: true) {
+                            // It needs to wait for one view to close down to show another
+                            self.showErrorMessage(errorMessage)
+                        }
                 }
             }
         }
@@ -133,8 +135,10 @@ private extension LaunchDetailViewType {
 
     func showErrorMessage(_ message: String) {
         let alert = UIAlertController(title: "Something went wrong", message: message, preferredStyle: .alert)
-        // TODO: Add possibility to retry downloading
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        alert.addAction(UIAlertAction(title: "Retry", style: .default) { _ in
+            self.viewModel.getLaunchDetails()
+        })
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
         self.present(alert, animated: true, completion: nil)
     }
 }
