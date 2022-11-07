@@ -21,14 +21,8 @@ class FlightNumberView: UIView {
     }
 
     func configureViews() {
-        if isDarkModeActive {
-            backgroundColor = .white
-            flightNumberLabel.textColor = .black
-        } else {
-            backgroundColor = .black
-            flightNumberLabel.textColor = .white
-        }
-
+        backgroundColor = UIColor(named: "FlyghtNumberBackground")
+        flightNumberLabel.textColor = UIColor(named: "FlyghtNumberLabel")
         layer.masksToBounds = true
         layer.cornerRadius = 10
 

@@ -90,12 +90,7 @@ class LaunchDetailHeaderView: UITableViewCell {
         mainStackView.alignment = .center
 
         patchImageView.contentMode = .scaleAspectFit
-
-        if isDarkModeActive {
-            patchImageView.tintColor = .white
-        } else {
-            patchImageView.tintColor = .black
-        }
+        patchImageView.tintColor = UIColor(named: "Tint")
     }
 
     func applyViewModel(launch: RocketLaunch, patchImage: UIImage?) {
