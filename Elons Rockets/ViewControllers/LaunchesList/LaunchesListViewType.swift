@@ -17,6 +17,7 @@ public protocol LaunchesListViewType: UITableViewController, BaseTableViewProtoc
     var orderingBarIcon: UIImage? { get }
     var searchController: UISearchController { get set }
     var viewModel: LaunchesListViewModelType { get set }
+    var coordinator: MainCoordinator? { get set }
 
 }
 
@@ -61,7 +62,6 @@ public extension LaunchesListViewType where Self: UITableViewController {
     }
 
     func didSelectRow(at indexPath: IndexPath) {
-        // TODO: MUST Rework this - for now  just for accessing detail view
         tableView.deselectRow(at: indexPath, animated: true)
 
         var launch: RocketLaunch?
@@ -73,11 +73,7 @@ public extension LaunchesListViewType where Self: UITableViewController {
         guard let launch = launch else {
             return
         }
-
-        let detailViewModel = LaunchDetailViewModel(apiService: viewModel.apiService)
-        detailViewModel.rocketLaunch = launch
-        let detailViewController = LaunchDetailViewController(viewModel: detailViewModel)
-        navigationController?.pushViewController(detailViewController, animated: true)
+        coordinator?.showLaunchDetail(rocketLaunch: launch)
     }
 
     var orderingBarIcon: UIImage? {

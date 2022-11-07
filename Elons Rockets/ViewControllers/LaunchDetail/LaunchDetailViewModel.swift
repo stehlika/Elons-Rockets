@@ -24,7 +24,7 @@ public protocol LaunchDetailViewModelType {
     var crewMembers: [CrewMember] { get set }
     var launchpad: Launchpad? { get set }
     var rocket: Rocket? { get set }
-    var rocketLaunch: RocketLaunch? { get set }
+    var rocketLaunch: RocketLaunch { get set }
 
     var tableData: [TableSectionViewModel] { get }
 
@@ -51,7 +51,6 @@ public extension LaunchDetailViewModelType {
     }
 
     var launchDetailMainInfo: UITableViewCell {
-        guard let rocketLaunch = rocketLaunch else { return UITableViewCell() }
         let headerCell = LaunchDetailHeaderView()
         headerCell.applyViewModel(launch: rocketLaunch, patchImage: patchImage)
         return headerCell
@@ -81,7 +80,6 @@ public extension LaunchDetailViewModelType {
 
     // If you want to add another social link add it here
     var linksData: [(String, String)] {
-        guard let rocketLaunch = rocketLaunch else { return [] }
         var links: [(String, String)] = []
 
         if let wikiLink = rocketLaunch.links.wikipedia {
@@ -131,7 +129,7 @@ class LaunchDetailViewModel: LaunchDetailViewModelType {
     var crewMembers: [CrewMember] = []
     var launchpad: Launchpad?
     var rocket: Rocket?
-    var rocketLaunch: RocketLaunch?
+    var rocketLaunch: RocketLaunch
 
     var patchImage: UIImage = UIImage(named: "rocket")!
     var mainImage: UIImage?
@@ -139,14 +137,14 @@ class LaunchDetailViewModel: LaunchDetailViewModelType {
     var apiService: ApiService
 
 
-    init(apiService: ApiService) {
+    init(apiService: ApiService, rocketLaunch: RocketLaunch) {
         self.apiService = apiService
+        self.rocketLaunch = rocketLaunch
     }
 
     func getLaunchDetails() {
         Task {
             do {
-                guard let rocketLaunch = rocketLaunch else { return }
                 progressHandler?(.loading)
                 if !rocketLaunch.crew.isEmpty {
                     for crew in rocketLaunch.crew {

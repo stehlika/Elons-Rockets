@@ -17,6 +17,8 @@ public protocol ApiService {
 
 struct SpaceXAPIService: ApiService {
 
+    static let shared = SpaceXAPIService()
+
     var session = URLSession.shared
 
     var baseUrl = "https://api.spacexdata.com/"
