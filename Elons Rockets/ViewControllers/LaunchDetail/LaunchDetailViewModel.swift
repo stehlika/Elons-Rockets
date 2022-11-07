@@ -64,9 +64,9 @@ public extension LaunchDetailViewModelType {
         rows.append(ValueRow(key: "Name", value: rocket.name))
         rows.append(ValueRow(key: "Type", value: rocket.type))
         rows.append(ValueRow(key: "Cost per launch", value: String(format: "%.2f", rocket.costPerLaunch) + " $"))
-        rows.append(ValueRow(key: "Diameter", value: "\(rocket.diameterCalculated)"))
-        rows.append(ValueRow(key: "Height", value: "\(rocket.heightCalculated)"))
-        rows.append(ValueRow(key: "Mass", value: "\(rocket.massCalculated)"))
+        rows.append(ValueRow(key: "Diameter", value: rocket.diameterCalculated))
+        rows.append(ValueRow(key: "Height", value: rocket.heightCalculated))
+        rows.append(ValueRow(key: "Mass", value: rocket.massCalculated))
         return rows.map { $0.tableViewCell }
     }
 

@@ -18,7 +18,6 @@
 		1492D7C72914173B008BB1E5 /* TableSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C62914173B008BB1E5 /* TableSectionViewModel.swift */; };
 		1492D7C929141767008BB1E5 /* LaunchDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C829141767008BB1E5 /* LaunchDetailHeaderView.swift */; };
 		1492D7CD29143EE0008BB1E5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7CC29143EE0008BB1E5 /* MainCoordinator.swift */; };
-		1492D7D029145405008BB1E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7CF29145405008BB1E5 /* Constants.swift */; };
 		14DEF578290FD5EC004851EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF577290FD5EC004851EB /* AppDelegate.swift */; };
 		14DEF57A290FD5EC004851EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF579290FD5EC004851EB /* SceneDelegate.swift */; };
 		14DEF57C290FD5EC004851EB /* LaunchesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF57B290FD5EC004851EB /* LaunchesListViewController.swift */; };
@@ -48,7 +47,6 @@
 		1492D7C62914173B008BB1E5 /* TableSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionViewModel.swift; sourceTree = "<group>"; };
 		1492D7C829141767008BB1E5 /* LaunchDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailHeaderView.swift; sourceTree = "<group>"; };
 		1492D7CC29143EE0008BB1E5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		1492D7CF29145405008BB1E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		14DEF574290FD5EC004851EB /* Elons Rockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elons Rockets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DEF577290FD5EC004851EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14DEF579290FD5EC004851EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			children = (
 				1492D7CC29143EE0008BB1E5 /* MainCoordinator.swift */,
 				14DEF577290FD5EC004851EB /* AppDelegate.swift */,
-				1492D7CF29145405008BB1E5 /* Constants.swift */,
 				14DEF579290FD5EC004851EB /* SceneDelegate.swift */,
 			);
 			path = SupportingFiles;
@@ -289,7 +286,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1492D7C1291416DF008BB1E5 /* LaunchDetailViewController.swift in Sources */,
-				1492D7D029145405008BB1E5 /* Constants.swift in Sources */,
 				14DEF58E290FD67F004851EB /* SpaceXApiService.swift in Sources */,
 				14DEF59B290FF718004851EB /* LaunchesListViewModel.swift in Sources */,
 				142C50412911117B00C81D91 /* BaseTableViewProtocol.swift in Sources */,

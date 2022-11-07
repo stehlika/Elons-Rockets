@@ -21,11 +21,19 @@ public struct Rocket: Decodable {
         Locale.current.measurementSystem
     }
 
+    var measurementFormatter: MeasurementFormatter {
+        let formatter = MeasurementFormatter()
+        formatter.unitOptions = .providedUnit
+        return formatter
+    }
+
     var massCalculated: String {
         if measurementSystem == .metric {
             return "\(mass.kg) kg"
         } else {
-            return "\(Float(mass.kg) * kgsToLbsRatio) lb"
+            let measurementValue = Measurement(value: mass.kg, unit: UnitMass.kilograms)
+            let convertedValue = measurementValue.converted(to: UnitMass.pounds)
+            return measurementFormatter.string(from: convertedValue)
         }
     }
 
@@ -33,7 +41,7 @@ public struct Rocket: Decodable {
         if measurementSystem == .metric {
             return "\(diameter.meters) m"
         } else {
-            return "\(Float(diameter.meters) * metersToFeetRatio) ft"
+            return convertMetersToFeet(diameter.meters)
         }
     }
 
@@ -41,7 +49,7 @@ public struct Rocket: Decodable {
         if measurementSystem == .metric {
             return "\(height.meters) m"
         } else {
-            return "\(Float(height.meters) * metersToFeetRatio) ft"
+            return convertMetersToFeet(height.meters)
         }
     }
 
@@ -66,5 +74,11 @@ public struct Rocket: Decodable {
 
     struct Mass: Decodable {
         let kg: Double // Other measurement system can be calculated
+    }
+
+    func convertMetersToFeet(_ valueInMeters: Double) -> String {
+        let measuredValue = Measurement(value: valueInMeters, unit: UnitLength.meters)
+        let convertedValue = measuredValue.converted(to: UnitLength.feet)
+        return measurementFormatter.string(from: convertedValue)
     }
 }
