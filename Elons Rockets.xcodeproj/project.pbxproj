@@ -43,6 +43,7 @@
 		1488F83F2916A34300BCB437 /* Launchpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launchpad.swift; sourceTree = "<group>"; };
 		1488F841291907D200BCB437 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1488F87C2919608700BCB437 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		1488F87E2919764700BCB437 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1492D7C0291416DF008BB1E5 /* LaunchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewController.swift; sourceTree = "<group>"; };
 		1492D7C2291416F7008BB1E5 /* LaunchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewModel.swift; sourceTree = "<group>"; };
 		1492D7C42914170F008BB1E5 /* LaunchDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewType.swift; sourceTree = "<group>"; };
@@ -115,6 +116,13 @@
 			path = LaunchesList;
 			sourceTree = "<group>";
 		};
+		1488F88029197DE100BCB437 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		1492D7BF291416C5008BB1E5 /* LaunchDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +136,8 @@
 		14DEF56B290FD5EC004851EB = {
 			isa = PBXGroup;
 			children = (
+				1488F88029197DE100BCB437 /* Images */,
+				1488F87E2919764700BCB437 /* README.md */,
 				14DEF576290FD5EC004851EB /* Elons Rockets */,
 				14DEF575290FD5EC004851EB /* Products */,
 			);
