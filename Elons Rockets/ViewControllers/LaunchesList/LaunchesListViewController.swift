@@ -11,6 +11,7 @@ class LaunchesListViewController: LaunchesListViewControllerType {
 
     var loadingAlertView: UIAlertController
     var searchController: UISearchController
+    var coordinator: MainCoordinator?
 
     var viewModel: LaunchesListViewModelType
 
