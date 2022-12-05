@@ -50,22 +50,22 @@ class LaunchDetailHeaderView: UITableViewCell {
         addSubview(detailsLabel)
 
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 8.0),
-            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.0),
-            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.0),
-            mainStackView.bottomAnchor.constraint(equalTo: separatorLine.topAnchor, constant: -8.0),
+            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: LayoutSpacing.xs),
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutSpacing.xs),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -LayoutSpacing.xs),
+            mainStackView.bottomAnchor.constraint(equalTo: separatorLine.topAnchor, constant: -LayoutSpacing.xs),
 
-            separatorLine.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.0),
-            separatorLine.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.0),
+            separatorLine.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutSpacing.xs),
+            separatorLine.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -LayoutSpacing.xs),
             separatorLine.heightAnchor.constraint(equalToConstant: 1.0),
 
             patchImageView.heightAnchor.constraint(equalToConstant: 64.0),
             patchImageView.widthAnchor.constraint(equalToConstant: 64.0),
 
-            detailsLabel.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 8.0),
-            detailsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.0),
-            detailsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.0),
-            detailsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8.0),
+            detailsLabel.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: LayoutSpacing.xs),
+            detailsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutSpacing.xs),
+            detailsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -LayoutSpacing.xs),
+            detailsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -LayoutSpacing.xs),
         ])
     }
 
@@ -85,7 +85,7 @@ class LaunchDetailHeaderView: UITableViewCell {
         detailsStackView.distribution = .equalSpacing
 
         mainStackView.distribution = .fill
-        mainStackView.spacing = 8.0
+        mainStackView.spacing = LayoutSpacing.xs
         mainStackView.axis = .horizontal
         mainStackView.alignment = .center
 
