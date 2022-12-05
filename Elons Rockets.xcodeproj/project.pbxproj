@@ -20,6 +20,7 @@
 		1492D7C929141767008BB1E5 /* LaunchDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7C829141767008BB1E5 /* LaunchDetailHeaderView.swift */; };
 		1492D7CD29143EE0008BB1E5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D7CC29143EE0008BB1E5 /* MainCoordinator.swift */; };
 		14A36AFB293DEDA400507D67 /* LayoutSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A36AFA293DEDA400507D67 /* LayoutSpacing.swift */; };
+		14A36AFD293DF2D000507D67 /* ColorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A36AFC293DF2D000507D67 /* ColorsEnum.swift */; };
 		14DEF578290FD5EC004851EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF577290FD5EC004851EB /* AppDelegate.swift */; };
 		14DEF57A290FD5EC004851EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF579290FD5EC004851EB /* SceneDelegate.swift */; };
 		14DEF57C290FD5EC004851EB /* LaunchesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF57B290FD5EC004851EB /* LaunchesListViewController.swift */; };
@@ -51,6 +52,7 @@
 		1492D7C829141767008BB1E5 /* LaunchDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailHeaderView.swift; sourceTree = "<group>"; };
 		1492D7CC29143EE0008BB1E5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		14A36AFA293DEDA400507D67 /* LayoutSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSpacing.swift; sourceTree = "<group>"; };
+		14A36AFC293DF2D000507D67 /* ColorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsEnum.swift; sourceTree = "<group>"; };
 		14DEF574290FD5EC004851EB /* Elons Rockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elons Rockets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DEF577290FD5EC004851EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14DEF579290FD5EC004851EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				14DEF579290FD5EC004851EB /* SceneDelegate.swift */,
 				1488F87C2919608700BCB437 /* Localizable.stringsdict */,
 				14A36AFA293DEDA400507D67 /* LayoutSpacing.swift */,
+				14A36AFC293DF2D000507D67 /* ColorsEnum.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				14DEF59B290FF718004851EB /* LaunchesListViewModel.swift in Sources */,
 				142C50412911117B00C81D91 /* BaseTableViewProtocol.swift in Sources */,
 				1492D7C52914170F008BB1E5 /* LaunchDetailViewType.swift in Sources */,
+				14A36AFD293DF2D000507D67 /* ColorsEnum.swift in Sources */,
 				14DEF57C290FD5EC004851EB /* LaunchesListViewController.swift in Sources */,
 				1492D7CD29143EE0008BB1E5 /* MainCoordinator.swift in Sources */,
 				1492D7C72914173B008BB1E5 /* TableSectionViewModel.swift in Sources */,
