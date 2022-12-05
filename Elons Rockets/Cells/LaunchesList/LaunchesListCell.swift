@@ -54,7 +54,7 @@ private extension LaunchesListCell {
         detailsStackView.translatesAutoresizingMaskIntoConstraints = false
         detailsStackView.axis = .vertical
         detailsStackView.alignment = .leading
-        detailsStackView.spacing = 8.0
+        detailsStackView.spacing = LayoutSpacing.xs
         accessoryType = .disclosureIndicator
     }
 
@@ -74,13 +74,13 @@ private extension LaunchesListCell {
         contentView.addSubview(flightNumberView)
 
         NSLayoutConstraint.activate([
-            detailsStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0),
-            detailsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
-            detailsStackView.trailingAnchor.constraint(equalTo: flightNumberView.leadingAnchor, constant: -8.0),
-            detailsStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8.0),
+            detailsStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutSpacing.xs),
+            detailsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutSpacing.m),
+            detailsStackView.trailingAnchor.constraint(equalTo: flightNumberView.leadingAnchor, constant: -LayoutSpacing.xs),
+            detailsStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -LayoutSpacing.xs),
 
             flightNumberView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            flightNumberView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8.0),
+            flightNumberView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutSpacing.xs),
         ])
     }
 }
