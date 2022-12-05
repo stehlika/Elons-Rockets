@@ -71,7 +71,7 @@ public extension LaunchDetailViewType where Self: UITableViewController {
 private extension LaunchDetailViewType {
     func configureViews() {
         navigationItem.largeTitleDisplayMode = .never
-        navigationController?.navigationBar.tintColor = UIColor(named: "Tint")
+        navigationController?.navigationBar.tintColor = .tint
         loadingAlertView.view.addSubview(loadingIndicator)
     }
 

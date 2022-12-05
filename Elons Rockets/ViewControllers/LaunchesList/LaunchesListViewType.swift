@@ -75,7 +75,7 @@ public extension LaunchesListViewType where Self: UITableViewController {
 
     var orderingBarIcon: UIImage? {
         UIImage(systemName: "arrow.up.arrow.down.circle")?
-            .withTintColor(UIColor(named: "Tint") ?? .white, renderingMode: .alwaysOriginal)
+            .withTintColor(.tint, renderingMode: .alwaysOriginal)
     }
 
     func orderLaunchesButtonAction() {
